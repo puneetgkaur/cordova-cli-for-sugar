@@ -1,7 +1,5 @@
 define(["sugar-web/env"], function (env) {
 
-/*CONTENT START*/
-
     'use strict';
 
     var lastId = 0;
@@ -220,6 +218,6 @@ define(["sugar-web/env"], function (env) {
         client.close();
         client = null;
     };
-/*CONTENT END*/
+
     return bus;
 });

@@ -129,22 +129,5 @@ define(["webL10n",
         bus.sendMessage("activity.show_object_chooser", [], onResponseReceived);
     };
 
-
-    activity.cordova = function(className,functionName,parameters,callbackId){
-        function onResponseReceived(error, result) {
-            if (error == null) {
-                //successhandler(result);
-		
-		cordova.callbackSuccess(callbackId,result);
-            } else {
-                cordova.callbackError(callbackId,error);
-            }
-        }
-
-
- 	bus.sendMessage("activity.cordova",[className,functionName,parameters],onResponseReceived);
-
-    }
-console.log(activity);
     return activity;
 });

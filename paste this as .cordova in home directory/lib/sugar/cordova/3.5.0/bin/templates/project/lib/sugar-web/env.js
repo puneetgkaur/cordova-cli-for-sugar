@@ -1,5 +1,5 @@
 define(function () {
-/*CONTENT START*/
+
     'use strict';
 
     var env = {};
@@ -46,6 +46,6 @@ define(function () {
 
         return currentURLScheme !== webActivityURLScheme;
     };
-/*CONTENT END*/
+
     return env;
 });
