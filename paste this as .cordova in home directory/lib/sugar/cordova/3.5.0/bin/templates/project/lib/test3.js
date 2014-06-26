@@ -1,0 +1,118 @@
+var fs=require('fs');
+
+var path = require('path');
+var filePath1 = path.join(__dirname + '/sugar-web/activity/activity.js');
+var filePath2 = path.join(__dirname + '/new_file.js');
+
+// between square brakets \[(.*?)\]
+
+fs.readFile(filePath1, 'utf8', function (err,data) {
+  if (err) {
+    return console.log(err);
+  }
+  console.log(data);
+
+ var extract1 = data.match("\[(.*?)\]");
+console.log(extract1);
+i=0;
+while(data[i]!=']'&&data.length!=i)i++;
+
+if(i==data.length)
+{
+  extract1=null;
+}
+
+if(extract1!=null)
+{
+	console.log("extract1.index="+extract1.index);
+
+	i=extract1.index;
+	while(data[i]!=']'&&data.length!=i)i++;
+        
+	end_define_index=i;
+	console.log(end_define_index);
+
+
+	// now copy from data from extract1.index till end_define_index from data to a new string variable using the javascript slice string function
+
+	var module_dependencies1 = data.slice(extract1.index+2,end_define_index);
+	console.log("module-dependencies : \n"+module_dependencies1);
+
+	str2=module_dependencies1.split("\"");
+	console.log("string="+str2);
+
+	i=0;
+	var cordova_sugardependencies = "\n";
+
+	while(i<str2.length)
+	{
+		var pattern=new RegExp("\w+");
+		if(pattern.test(str2[i]))
+		{
+		 console.log(str2[i]);
+		 str3=str2[i].split("/");
+		 console.log(str3);
+		 console.log(str3.length);
+		 console.log(str3[str3.length-1]);
+		 cordova_sugardependencies=cordova_sugardependencies.concat("var "+str3[str3.length-1]+" = ");
+		 cordova_sugardependencies=cordova_sugardependencies.concat("require('"+str2[i]+"');\n");
+		 console.log(cordova_sugardependencies);
+		}
+		i++;
+	}
+
+}
+str4=data.split("'use strict'");
+console.log(str4[1]);
+file_name=path.basename(filePath1);
+console.log(file_name);
+
+file_name_part1=file_name.split(".");
+console.log(file_name_part1[0]);
+
+cut_the_tail_part=str4[1].split("return "+file_name_part1[0]);
+console.log(cut_the_tail_part[0]);
+if(extract1!=null)
+{
+	new_file_data="define("+module_dependencies1+",function(require, exports, module){\n\n"+cordova_sugardependencies+"\n'use strict';"+cut_the_tail_part[0]+"\n"+"module.exports="+file_name_part1[0]+";\n})";
+}
+else
+{
+	new_file_data="define(function(require, exports, module){\n'use strict';"+cut_the_tail_part[0]+"\n"+"module.exports="+file_name_part1[0]+";\n})";
+}
+console.log(new_file_data);
+
+fs.writeFile(filePath2, new_file_data, function(err) {
+    if(err) {
+        console.log(err);
+    } else {
+        console.log("wrote data to " +filePath2);
+    }
+}); 
+
+// CAN MATCH return name_of_file TO KNOW THE END
+
+
+/*
+console.log(module_dependencies1.length);
+while(i<module_dependencies1.length)
+{
+
+	console.log(module_dependencies1[i]);
+	ch=module_dependencies1[i];
+	if(ch=='"'&&flag==0)
+	{
+		l++;m=0;
+		flag=1;
+	}
+	else if(flag==1&&ch=='"')
+	{
+		flag=0;
+	}
+	if(flag==1)
+	str2[l][m++]=module_dependencies1[i];
+	 i++;
+}
+*/
+//console.log(extract1);
+});

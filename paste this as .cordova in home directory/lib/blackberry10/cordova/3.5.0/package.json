@@ -1,0 +1,42 @@
+{
+  "name": "cordova-blackberry",
+  "version": "3.5.0",
+  "description": "cordova-blackberry release",
+  "repository": {
+    "type":"git",
+    "url":"https://git-wip-us.apache.org/repos/asf/cordova-blackberry.git"
+  },
+  "author": "Apache Software Foundation",
+  "licenses": "Apache Version 2.0",
+  "keywords":[
+    "blackberry",
+    "apache",
+    "cordova"
+  ],
+  "engines": {
+    "node": ">=0.9.9"
+  },
+  "scripts": {
+    "test": "./node_modules/jake/bin/cli.js"
+  },
+  "dependencies": {
+    "jWorkflow": "0.8.0",
+    "commander": "0.5.2",
+    "localize": "*0.4.2",
+    "zip": "0.0.6",
+    "xml2js": "0.1.13",
+    "validator": "0.4.1",
+    "wrench": "1.4.4",
+    "shelljs":"0.2.6",
+    "exit": "0.1.1",
+    "elementtree": "0.1.5",
+    "prompt": "0.2.11",
+    "async": "0.2.9"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "*",
+    "grunt-jasmine-node": "*",
+    "jasmine-node": "1.7.1"
+  },
+  "readmeFilename": "README.md"
+}

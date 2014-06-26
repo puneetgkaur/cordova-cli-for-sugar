@@ -1,0 +1,42 @@
+index.html -> navigator.accelerometer.getCurrentAcceleration(onSuccess, onError); liine 26
+
+accelerometer.js -> getCurrentAcceleration: function(successCallback, errorCallback, options) - line96
+	: adds a new listener for the accelerometer
+	: calls the start function -> function start() - line50
+
+
+
+accelerometer.js -> start function line 50
+
+cordova.js -> exec function -> line 857
+
+
+activity.js -> activity.cordova functiion line 133
+
+activity.js -> bus.sendMessage line 145
+
+apisocket.py -> cordova function
+
+apisocket.py -> accelerometer class's execute function with action = getCurrentAcceleration 
+
+RETURN :
+
+apisocket.py -> accelerometer class's execute function with action = getCurrentAcceleration  returns result
+
+apisocket.py -> cordova function call to self._client.send_result/self._client.send_error
+
+activity.js -> onResponseRecievedfunction in activity.cordova function
+
+
+cordova.js -> cordova.callbackSuccess/callbackError
+
+cordova.js -> cordova.callbackFromNative
+
+
+cordova.js -> successhandler/errorhandler of exec function
+
+accelerometer.js -> successhandler of exec function in the start function
+
+accelerometer.js -> successhandler of getCurrentAcceleration function in accelerometer.js
+
+index.html ->  successhandler of getCurrentAcceleration function in index.html

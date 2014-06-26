@@ -1,0 +1,475 @@
+define(function () {
+/*CONTENT START*/
+    'use strict';
+
+    var env = {};
+
+    env.getEnvironment = function (callback) {
+        // FIXME: we assume this code runs on the same thread as the
+        // javascript executed from sugar-toolkit-gtk3 (python)
+
+        if (env.isStandalone()) {
+            setTimeout(function () {
+                callback(null, {});
+            }, 0);
+        } else {
+            var environmentCallback = function () {
+                callback(null, window.top.sugar.environment);
+            };
+
+            if (window.top.sugar) {
+                setTimeout(function () {
+                    environmentCallback();
+                }, 0);
+            } else {
+                window.top.sugar = {};
+                window.top.sugar.onEnvironmentSet = function () {
+                    environmentCallback();
+                };
+            }
+        }
+    };
+
+    env.getObjectId = function (callback) {
+        env.getEnvironment(function (error, environment) {
+            callback(environment.objectId);
+        });
+    };
+
+    env.getURLScheme = function () {
+        return window.location.protocol;
+    };
+
+    env.isStandalone = function () {
+        var webActivityURLScheme = "activity:";
+        var currentURLScheme = env.getURLScheme();
+
+        return currentURLScheme !== webActivityURLScheme;
+    };
+/*CONTENT END*/
+    return env;
+});
+
+/*CONTENT START*/
+    'use strict';
+
+    var env = {};
+
+    env.getEnvironment = function (callback) {
+        // FIXME: we assume this code runs on the same thread as the
+        // javascript executed from sugar-toolkit-gtk3 (python)
+
+        if (env.isStandalone()) {
+            setTimeout(function () {
+                callback(null, {});
+            }, 0);
+        } else {
+            var environmentCallback = function () {
+                callback(null, window.top.sugar.environment);
+            };
+
+            if (window.top.sugar) {
+                setTimeout(function () {
+                    environmentCallback();
+                }, 0);
+            } else {
+                window.top.sugar = {};
+                window.top.sugar.onEnvironmentSet = function () {
+                    environmentCallback();
+                };
+            }
+        }
+    };
+
+    env.getObjectId = function (callback) {
+        env.getEnvironment(function (error, environment) {
+            callback(environment.objectId);
+        });
+    };
+
+    env.getURLScheme = function () {
+        return window.location.protocol;
+    };
+
+    env.isStandalone = function () {
+        var webActivityURLScheme = "activity:";
+        var currentURLScheme = env.getURLScheme();
+
+        return currentURLScheme !== webActivityURLScheme;
+    };
+/*CONTENT START*/
+    'use strict';
+
+    var env = {};
+
+    env.getEnvironment = function (callback) {
+        // FIXME: we assume this code runs on the same thread as the
+        // javascript executed from sugar-toolkit-gtk3 (python)
+
+        if (env.isStandalone()) {
+            setTimeout(function () {
+                callback(null, {});
+            }, 0);
+        } else {
+            var environmentCallback = function () {
+                callback(null, window.top.sugar.environment);
+            };
+
+            if (window.top.sugar) {
+                setTimeout(function () {
+                    environmentCallback();
+                }, 0);
+            } else {
+                window.top.sugar = {};
+                window.top.sugar.onEnvironmentSet = function () {
+                    environmentCallback();
+                };
+            }
+        }
+    };
+
+    env.getObjectId = function (callback) {
+        env.getEnvironment(function (error, environment) {
+            callback(environment.objectId);
+        });
+    };
+
+    env.getURLScheme = function () {
+        return window.location.protocol;
+    };
+
+    env.isStandalone = function () {
+        var webActivityURLScheme = "activity:";
+        var currentURLScheme = env.getURLScheme();
+
+        return currentURLScheme !== webActivityURLScheme;
+    };
+/*CONTENT START*/
+    'use strict';
+
+    var env = {};
+
+    env.getEnvironment = function (callback) {
+        // FIXME: we assume this code runs on the same thread as the
+        // javascript executed from sugar-toolkit-gtk3 (python)
+
+        if (env.isStandalone()) {
+            setTimeout(function () {
+                callback(null, {});
+            }, 0);
+        } else {
+            var environmentCallback = function () {
+                callback(null, window.top.sugar.environment);
+            };
+
+            if (window.top.sugar) {
+                setTimeout(function () {
+                    environmentCallback();
+                }, 0);
+            } else {
+                window.top.sugar = {};
+                window.top.sugar.onEnvironmentSet = function () {
+                    environmentCallback();
+                };
+            }
+        }
+    };
+
+    env.getObjectId = function (callback) {
+        env.getEnvironment(function (error, environment) {
+            callback(environment.objectId);
+        });
+    };
+
+    env.getURLScheme = function () {
+        return window.location.protocol;
+    };
+
+    env.isStandalone = function () {
+        var webActivityURLScheme = "activity:";
+        var currentURLScheme = env.getURLScheme();
+
+        return currentURLScheme !== webActivityURLScheme;
+    };
+/*CONTENT START*/
+    'use strict';
+
+    var env = {};
+
+    env.getEnvironment = function (callback) {
+        // FIXME: we assume this code runs on the same thread as the
+        // javascript executed from sugar-toolkit-gtk3 (python)
+
+        if (env.isStandalone()) {
+            setTimeout(function () {
+                callback(null, {});
+            }, 0);
+        } else {
+            var environmentCallback = function () {
+                callback(null, window.top.sugar.environment);
+            };
+
+            if (window.top.sugar) {
+                setTimeout(function () {
+                    environmentCallback();
+                }, 0);
+            } else {
+                window.top.sugar = {};
+                window.top.sugar.onEnvironmentSet = function () {
+                    environmentCallback();
+                };
+            }
+        }
+    };
+
+    env.getObjectId = function (callback) {
+        env.getEnvironment(function (error, environment) {
+            callback(environment.objectId);
+        });
+    };
+
+    env.getURLScheme = function () {
+        return window.location.protocol;
+    };
+
+    env.isStandalone = function () {
+        var webActivityURLScheme = "activity:";
+        var currentURLScheme = env.getURLScheme();
+
+        return currentURLScheme !== webActivityURLScheme;
+    };
+/*CONTENT START*/ write=1
+    'use strict'; write=1
+ write=1
+    var env = {}; write=1
+ write=1
+    env.getEnvironment = function (callback) { write=1
+        // FIXME: we assume this code runs on the same thread as the write=1
+        // javascript executed from sugar-toolkit-gtk3 (python) write=1
+ write=1
+        if (env.isStandalone()) { write=1
+            setTimeout(function () { write=1
+                callback(null, {}); write=1
+            }, 0); write=1
+        } else { write=1
+            var environmentCallback = function () { write=1
+                callback(null, window.top.sugar.environment); write=1
+            }; write=1
+ write=1
+            if (window.top.sugar) { write=1
+                setTimeout(function () { write=1
+                    environmentCallback(); write=1
+                }, 0); write=1
+            } else { write=1
+                window.top.sugar = {}; write=1
+                window.top.sugar.onEnvironmentSet = function () { write=1
+                    environmentCallback(); write=1
+                }; write=1
+            } write=1
+        } write=1
+    }; write=1
+ write=1
+    env.getObjectId = function (callback) { write=1
+        env.getEnvironment(function (error, environment) { write=1
+            callback(environment.objectId); write=1
+        }); write=1
+    }; write=1
+ write=1
+    env.getURLScheme = function () { write=1
+        return window.location.protocol; write=1
+    }; write=1
+ write=1
+    env.isStandalone = function () { write=1
+        var webActivityURLScheme = "activity:"; write=1
+        var currentURLScheme = env.getURLScheme(); write=1
+ write=1
+        return currentURLScheme !== webActivityURLScheme; write=1
+    }; write=1
+/*CONTENT START*/ write=1
+    'use strict'; write=1
+ write=1
+    var env = {}; write=1
+ write=1
+    env.getEnvironment = function (callback) { write=1
+        // FIXME: we assume this code runs on the same thread as the write=1
+        // javascript executed from sugar-toolkit-gtk3 (python) write=1
+ write=1
+        if (env.isStandalone()) { write=1
+            setTimeout(function () { write=1
+                callback(null, {}); write=1
+            }, 0); write=1
+        } else { write=1
+            var environmentCallback = function () { write=1
+                callback(null, window.top.sugar.environment); write=1
+            }; write=1
+ write=1
+            if (window.top.sugar) { write=1
+                setTimeout(function () { write=1
+                    environmentCallback(); write=1
+                }, 0); write=1
+            } else { write=1
+                window.top.sugar = {}; write=1
+                window.top.sugar.onEnvironmentSet = function () { write=1
+                    environmentCallback(); write=1
+                }; write=1
+            } write=1
+        } write=1
+    }; write=1
+ write=1
+    env.getObjectId = function (callback) { write=1
+        env.getEnvironment(function (error, environment) { write=1
+            callback(environment.objectId); write=1
+        }); write=1
+    }; write=1
+ write=1
+    env.getURLScheme = function () { write=1
+        return window.location.protocol; write=1
+    }; write=1
+ write=1
+    env.isStandalone = function () { write=1
+        var webActivityURLScheme = "activity:"; write=1
+        var currentURLScheme = env.getURLScheme(); write=1
+ write=1
+        return currentURLScheme !== webActivityURLScheme; write=1
+    }; write=1
+/*CONTENT START*/
+ write=1
+    'use strict';
+ write=1
+
+ write=1
+    var env = {};
+ write=1
+
+ write=1
+    env.getEnvironment = function (callback) {
+ write=1
+        // FIXME: we assume this code runs on the same thread as the
+ write=1
+        // javascript executed from sugar-toolkit-gtk3 (python)
+ write=1
+
+ write=1
+        if (env.isStandalone()) {
+ write=1
+            setTimeout(function () {
+ write=1
+                callback(null, {});
+ write=1
+            }, 0);
+ write=1
+        } else {
+ write=1
+            var environmentCallback = function () {
+ write=1
+                callback(null, window.top.sugar.environment);
+ write=1
+            };
+ write=1
+
+ write=1
+            if (window.top.sugar) {
+ write=1
+                setTimeout(function () {
+ write=1
+                    environmentCallback();
+ write=1
+                }, 0);
+ write=1
+            } else {
+ write=1
+                window.top.sugar = {};
+ write=1
+                window.top.sugar.onEnvironmentSet = function () {
+ write=1
+                    environmentCallback();
+ write=1
+                };
+ write=1
+            }
+ write=1
+        }
+ write=1
+    };
+ write=1
+
+ write=1
+    env.getObjectId = function (callback) {
+ write=1
+        env.getEnvironment(function (error, environment) {
+ write=1
+            callback(environment.objectId);
+ write=1
+        });
+ write=1
+    };
+ write=1
+
+ write=1
+    env.getURLScheme = function () {
+ write=1
+        return window.location.protocol;
+ write=1
+    };
+ write=1
+
+ write=1
+    env.isStandalone = function () {
+ write=1
+        var webActivityURLScheme = "activity:";
+ write=1
+        var currentURLScheme = env.getURLScheme();
+ write=1
+
+ write=1
+        return currentURLScheme !== webActivityURLScheme;
+ write=1
+    };
+ write=1
+/*CONTENT START*/
+    'use strict';
+
+    var env = {};
+
+    env.getEnvironment = function (callback) {
+        // FIXME: we assume this code runs on the same thread as the
+        // javascript executed from sugar-toolkit-gtk3 (python)
+
+        if (env.isStandalone()) {
+            setTimeout(function () {
+                callback(null, {});
+            }, 0);
+        } else {
+            var environmentCallback = function () {
+                callback(null, window.top.sugar.environment);
+            };
+
+            if (window.top.sugar) {
+                setTimeout(function () {
+                    environmentCallback();
+                }, 0);
+            } else {
+                window.top.sugar = {};
+                window.top.sugar.onEnvironmentSet = function () {
+                    environmentCallback();
+                };
+            }
+        }
+    };
+
+    env.getObjectId = function (callback) {
+        env.getEnvironment(function (error, environment) {
+            callback(environment.objectId);
+        });
+    };
+
+    env.getURLScheme = function () {
+        return window.location.protocol;
+    };
+
+    env.isStandalone = function () {
+        var webActivityURLScheme = "activity:";
+        var currentURLScheme = env.getURLScheme();
+
+        return currentURLScheme !== webActivityURLScheme;
+    };
