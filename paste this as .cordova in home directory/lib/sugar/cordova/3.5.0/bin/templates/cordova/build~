@@ -19,6 +19,21 @@
        under the License.
 */
 
+var build = require('./lib/build'),
+    args  = process.argv;
+
+// Support basic help commands
+    if(args[2] == '--help' || args[2] == '/?' || args[2] == '-h' ||
+                    args[2] == 'help' || args[2] == '-help' || args[2] == '/help') {
+    build.help();
+} else {
+    return build.run(args[2]);
+    
+}
+
+
+
+/*
 
 var shell   = require('shelljs'),
     path    = require('path'),
@@ -27,7 +42,7 @@ var shell   = require('shelljs'),
 
 //get the name of the project
 
-console.log("ROOT : "+ROOT);
+//console.log("ROOT : "+ROOT);
 var file_prj_name= path.join(__dirname,'Project_Name.txt');
 
 
@@ -35,11 +50,12 @@ var file_prj_name= path.join(__dirname,'Project_Name.txt');
 	  if (err) {
 	    return console.log(err);
 	  }
-	  console.log("project name - "+data);
+	  //console.log("project name - "+data);
 	  shell.mkdir('-p',path.join(__dirname,data+".activity"));
           shell.cp('-rf', path.join(__dirname,"..", 'project','*'),path.join(__dirname,data+".activity"));
 	  shell.cd(path.join(shell.pwd()+"/platforms/sugar/cordova"));
-	  shell.exec("zip -r 2"+data+".xo "+data+".activity");
+	  shell.exec("zip -r "+data+".xo "+data+".activity");
+	  console.log("the .xo file is stored at : "+ shell.pwd()+ "/"+data+".xo");
 	});
 
 
@@ -47,4 +63,4 @@ var file_prj_name= path.join(__dirname,'Project_Name.txt');
 
  
 //shell.mkdir('-p',path.join(project_path,'project'));
-
+*/

@@ -1,0 +1,66 @@
+<!--
+playground to test multiple sheets in a page
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <meta name="msapplication-tap-highlight" content="no" />
+
+<title>SocialCalc 0.8.1</title>
+<script type="text/javascript" src="socialcalcconstants.js"></script>
+<script type="text/javascript" src="socialcalc-3.js"></script>
+<script type="text/javascript" src="socialcalctableeditor.js"></script>
+<script type="text/javascript" src="formatnumber2.js"></script>
+<script type="text/javascript" src="formula1.js"></script>
+<script type="text/javascript" src="socialcalcpopup.js"></script>
+<script type="text/javascript" src="socialcalcspreadsheetcontrol.js"></script>
+<script type="text/javascript" src="socialcalcworkbook.js"></script>
+<script type="text/javascript" src="socialcalcworkbookcontrol.js"></script>
+<script type="text/javascript" src="json2.js"></script>
+<style>
+body, td, input, texarea {font-family:verdana,helvetica,sans-serif;font-size:small;}
+.smaller {font-size:smaller;}
+</style>
+</head>
+
+
+<body style="background-color:#FFF;" >
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+<div id="workbookControl" style="padding:0px;background-color:#80A9F3;">
+</div>
+
+<div style="margin:0px 0px 0px 0px;">
+ <div id="tableeditor" style="margin:0px 0px 0px 0px;">editor goes here</div>
+</div>
+ <div id="msg" onclick="this.innerHTML='&nbsp;';"></div>
+
+
+<script>
+
+var spreadsheet = new SocialCalc.SpreadsheetControl();
+
+var workbook = new SocialCalc.WorkBook(spreadsheet);
+workbook.InitializeWorkBook("sheet1");
+
+spreadsheet.InitializeSpreadsheetControl("tableeditor");
+spreadsheet.ExecuteCommand('redisplay', '');
+
+
+var workbookcontrol = new SocialCalc.WorkBookControl(workbook,"workbookControl","sheet1");
+workbookcontrol.InitializeWorkBookControl();
+
+spreadsheet.DoOnResize()
+
+</script>
+</body>
+</html>

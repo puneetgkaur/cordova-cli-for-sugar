@@ -25,23 +25,6 @@ var shell = require('shelljs'),
     fs    = require('fs'),
     ROOT    = path.join(__dirname, '..', '..');
 
-// Returns a promise.
-
-/**
- * $ create [options]
- *
- * Creates an android application with the given options.
- *
- * Options:
- *
- *   - `project_path` 	{String} Path to the new Cordova android project.
- *   - `package_name`{String} Package name, following reverse-domain style convention.
- *   - `project_name` 	{String} Project name.
- *   - 'project_template_dir' {String} Path to project template (override).
- *
- * Returns a promise.
- */
-
 exports.createProject = function(project_path, package_name, project_name, project_template_dir, use_shared_project, use_cli_template) {
 
 console.log("project_path:"+project_path+"; package_name:"+package_name+"; project_name:"+project_name+"; project_template_dir:"+project_template_dir+"; use_shared_project:"+use_shared_project+"; use_cli_template:"+use_cli_template);
@@ -77,8 +60,8 @@ console.log("project_path:"+project_path+"; package_name:"+package_name+"; proje
 
 	
             // copy project template
-            shell.mkdir('-p',path.join(project_path,'project'));
-	    shell.cp('-r', path.join(project_template_dir,'project','*'), path.join(project_path,'project') );
+            shell.mkdir('-p',path.join(project_path,'project_template'));
+	    shell.cp('-r', path.join(project_template_dir,'project','*'), path.join(project_path,'project_template') );
 
 /*
             shell.cp('-r', path.join(project_template_dir, 'activity'),path.join(project_path,'project'));

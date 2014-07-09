@@ -1,0 +1,6 @@
+[Activity]
+name = Social_Calc_For_Sugar
+activity_version = 1
+bundle_id = org.sugarlabs.socialcalc_sugar
+exec = sugar-activity-web
+icon = activity-icon

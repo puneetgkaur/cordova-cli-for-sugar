@@ -39,10 +39,10 @@ var require,
  
 
     function build(module) {
-		console.log("module="+module);
+	console.log("module="+JSON.stringify(module));
         var factory = module.factory,
             localRequire = function (id) {
-		console.log("id="+id);
+		console.log("id="+JSON.stringify(id));
                 var resultantId = id;
                 //Its a relative path, so lop off the last portion and add the id (minus "./")
                 if (id.charAt(0) === ".") {
@@ -1176,7 +1176,7 @@ function sugarExec(success, fail, service, action, args) {
         argsJson = JSON.stringify(args);
 
     if (success || fail) {
-console.log("either success or failure");
+    console.log("either success or failure");
         cordova.callbacks[callbackId] = {success:success, fail:fail};
     }
 
@@ -1190,30 +1190,34 @@ console.log("either success or failure");
      });
 */
 
+	var success_function = success;
+	var failure_function = fail;
+
 
 	function onResponseReceived(error, result) {
-	    console.log("error");
-	    console.log(error);
-	    console.log("not error");
-    	    console.log(!error);
-	    console.log("result");
-	    console.log(result);
-	    if (!error ) {
+
+	    if (!error) {
 		//successhandler(result);
+		console.log("result : "+JSON.stringify(result));
+		//console.log("result : "+result);
+
 		console.log("Its success");
-		cordova.callbackSuccess(callbackId,result);
-		//success.apply(result);
+		//cordova.callbackSuccess(callbackId,result);
+		success_function(result);
 
 	    } else {
-	        console.log("Its error");
-		cordova.callbackError(callbackId,error);
-		//fail.apply(error);
+		console.log("error:"+JSON.stringify(error));
+		console.log("Its error");
+		//cordova.callbackError(callbackId,error);
+		failure_function(error);
 	    }
 	}
+
 
  	bus.sendMessage("activity.cordova",[service,action,args],onResponseReceived);
 
 }
+
 
 
 module.exports = sugarExec;

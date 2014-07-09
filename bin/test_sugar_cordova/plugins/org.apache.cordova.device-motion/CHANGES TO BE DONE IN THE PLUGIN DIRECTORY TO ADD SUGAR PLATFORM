@@ -1,0 +1,3 @@
+1. add name to the package jsosn file
+2. Add a folder with the platform'ss name in the src directory of the plugin dir
+3. add data in plugin.xml file for the concerned platform
