@@ -1,8 +1,0 @@
-requirejs.config({
-    baseUrl: "../",
-    paths: {
-        activity: "../js"
-    }
-});
-
-requirejs(["activity/activity"]);

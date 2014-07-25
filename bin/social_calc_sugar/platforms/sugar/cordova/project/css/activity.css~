@@ -1,9 +1,0 @@
-#main-toolbar #activity-button {
-  background-image: url(../activity/activity-icon.svg);
-}
-
-#iframe_users_page{
-width:100%;
-top:5px;
-height:100%;
-}
